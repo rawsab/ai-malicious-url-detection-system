@@ -1,1 +1,1 @@
-# AI-Malicious-Email-Detection-System
+# Malicious Email Detection System
