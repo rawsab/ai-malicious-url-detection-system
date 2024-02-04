@@ -117,5 +117,6 @@ ml_model.fit(x_training, y_training, epochs=10, batch_size=1200, callbacks=callb
 # Validating the model
 val_score, val_acc = ml_model.evaluate(x_validation, y_validation, verbose=1, batch_size=1024)
 
+# Checking validation score and accuracy of the model
 print(f"Validation Score: {val_score:.2f}")
 print(f"Accuracy of the Model: {val_acc * 100:.2f}%")
