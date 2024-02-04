@@ -63,12 +63,12 @@ labels = labels[indices]
 # Splitting dataset into training and validation sets
 
 # Training set
-x = data[:training_set]
-y = labels[:training_set]
+x_training = data[:training_set]
+y_training = labels[:training_set]
 
 # Validation set
-x_val = data[training_set: training_set + validation_set]
-y_val = labels[training_set: training_set + validation_set]
+x_validation = data[training_set: training_set + validation_set]
+y_validation = labels[training_set: training_set + validation_set]
 
 
 # Defining callbacks for Keras
@@ -89,3 +89,33 @@ callbacks = [
 
 num_chars = len(tokenizer.word_index) + 1
 embedding_dim = 128
+
+
+# Creating the model to train
+
+ml_model = Sequential()
+
+def modelSetup(): # adding model setup inside function for testing
+    ml_model.add(Embedding(num_chars, embedding_dim, input_length=max_len))
+    ml_model.add(Bidirectional(LSTM(256, dropout=0.3, recurrent_dropout=0.3, return_sequences=True)))
+    ml_model.add(Bidirectional(LSTM(256, dropout=0.3, recurrent_dropout=0.3, return_sequences=True)))
+    ml_model.add(Bidirectional(LSTM(128, dropout=0.3, recurrent_dropout=0.3)))
+    ml_model.add(Dense(1, activation='sigmoid'))
+    
+modelSetup()
+ml_model.summary()
+
+ml_model.compile(
+    optimizer='adam', 
+    loss='binary_crossentropy', 
+    metrics=['accuracy']
+)
+
+# Training the model
+ml_model.fit(x_training, y_training, epochs=10, batch_size=1200, callbacks=callbacks, validation_split=0.20, shuffle=True)
+
+# Validating the model
+val_score, val_acc = ml_model.evaluate(x_validation, y_validation, verbose=1, batch_size=1024)
+
+print(f"Validation Score: {val_score:.2f}")
+print(f"Accuracy of the Model: {val_acc * 100:.2f}%")
