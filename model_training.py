@@ -58,3 +58,15 @@ np.random.shuffle(indices) # Shuffling the data
 # Rearranging the data and labels to match shuffled indices
 data = data[indices]
 labels = labels[indices]
+
+
+# Splitting dataset into training and validation sets
+
+# Training set
+x = data[:training_set]
+y = labels[:training_set]
+
+# Validation set
+x_val = data[training_set: training_set + validation_set]
+y_val = labels[training_set: training_set + validation_set]
+
