@@ -70,3 +70,22 @@ y = labels[:training_set]
 x_val = data[training_set: training_set + validation_set]
 y_val = labels[training_set: training_set + validation_set]
 
+
+# Defining callbacks for Keras
+callbacks = [
+    keras.callbacks.EarlyStopping(
+        monitor='val_loss',
+        patience=2,
+        min_delta=0,
+        mode='auto',
+        baseline=None,
+    ),
+    keras.callbacks.ModelCheckpoint(
+        filepath='phishing_urls_model.h5',
+        monitor='val_loss',
+        save_best_only=True,
+    )
+]
+
+num_chars = len(tokenizer.word_index) + 1
+embedding_dim = 128
