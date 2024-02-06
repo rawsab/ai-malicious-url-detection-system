@@ -7,7 +7,7 @@ def main(url):
     KERAS_REST_API_URL = "http://localhost:45000/predict" # Defining API endpoint URL
     client_data = {"url": url} # Setting data to JSON format
     
-    req = requests.post(KERAS_REST_API_URL, data=client_data) # Sending the POST request
+    req = requests.post(KERAS_REST_API_URL, json=client_data) # Sending the POST request
     api_response = req.json() # Getting the response from the server
     
     # Returning predictions if request is successful

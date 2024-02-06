@@ -29,4 +29,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    url_set = main()
+    print(url_set)
