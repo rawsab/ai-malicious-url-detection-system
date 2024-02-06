@@ -81,7 +81,7 @@ callbacks = [
         baseline=None,
     ),
     keras.callbacks.ModelCheckpoint(
-        filepath='phishing_urls_model.h5',
+        filepath='malicious_url_detector.h5',
         monitor='val_loss',
         save_best_only=True,
     )
