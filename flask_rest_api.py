@@ -6,6 +6,7 @@ import numpy as np
 import tensorflow as tf
 
 from keras.models import load_model
+from keras.models import Sequential
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 
@@ -15,8 +16,8 @@ import data_preprocessed
 # Initializing the Flask application
 app = flask.Flask(__name__)
 
-global graph
-tf_graph = tf.get_default_graph()
+global tf_graph
+tf_graph = tf.compat.v1.get_default_graph()
 
 # Loading the pre-trained model
 trained_model = 'malicious_url_detector.h5' # TODO: Fix path, create file
@@ -40,6 +41,7 @@ def data_prep(url):
     tokenizer = Tokenizer(num_words=max_words, char_level=True)
     tokenizer.fit_on_texts(sample_set)
     sequences = tokenizer.texts_to_sequences(url)
+    word_index = tokenizer.word_index
     
     # Padding the sequences and returning the preprocessed data
     url_preprocessed = pad_sequences(sequences, maxlen=max_length)
