@@ -2,6 +2,8 @@
 
 ![python](https://img.shields.io/badge/Python-3.6.7-blue.svg)
 
+A binary classification model to detect malicious URLs using a Bidirectional LSTM network. In response to the prevalent cyber-threat of phishing attacks, this project applies deep learning to natural language processing (NLP) to effectively detect potential phishing attacks.
+
 ## ⚙️ Requirements
 
 [Install python](https://www.python.org/downloads/) and the required libraries (must have [pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) installed). Ensure that the repository is downloaded and the command is run in the appropriate directory:
