@@ -35,6 +35,6 @@ $ python3 flask_request.py -u https://www.https://phishtank.org/faq.php
 
 Expected Output:
 ```
-$ [{'Prediction Result': 3.228831036385466, 'Malicious URL Probability': 'The URL provided is not likely to be malicious.', 'url': ' https://www.https://phishtank.org/faq.php'}]
+$ [{'Prediction Result': 3.228831036385466, 'Malicious URL Probability': 'The URL provided is not likely to be malicious.', 'url': ' https://phishtank.org/faq.php'}]
 
 ```
