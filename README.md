@@ -28,7 +28,7 @@ Once the model is downloaded (updated .h5 model will be uploaded soon), run the 
 $ python flask_rest_api.py
 ```
 
-Next, open a new tab or window and run the following, replacing https://www.https://phishtank.org/faq.php with a URL (non-base URL) of your choice:
+Next, open a new tab or window and run the following, replacing https://phishtank.org/faq.php with a URL (non-base URL) of your choice:
 ```
 $ python3 flask_request.py -u https://www.https://phishtank.org/faq.php
 ```
